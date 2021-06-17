@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>線形計画問題の計算</title>
+	</head>
+
+    <body>
+        <h1>線形計画問題の解を計算する</h1>
+		<h3>目的関数の係数を入力しよう</h3>
+		<form method='POST' action="/calc">
+        {% for i in range(var) %}
+			{% if i != var-1 %}
+				<input type='text' name="c{{i}}" size="5">
+				<a>x{{i}} +</a>
+			{% else %}
+				<input type='text' name="c{{i}}" size="5">
+				<a>x{{i}}</a>
+			{% endif %}
+		{% endfor %}
+			<br>
+		{% if ineq>0 %}
+			<h3>不等式制約の係数を入力しよう</h3>
+			{% for j in range(ineq) %}
+				{% for i in range(var) %}
+					{% if i != var-1 %}
+						<input type='text' name="a{{j}}{{i}}" size="5">
+						<a>x{{i}} +</a>
+					{% else %}
+						<input type='text' name="a{{j}}{{i}}" size="5">
+						<a>x{{i}} ≤</a>
+						<input type='text' name="b{{j}}" size="5">
+					{% endif %}
+				{% endfor %}
+				<br>
+			{% endfor %}
+		{% endif %}
+		{% if eq>0 %}
+			<h3>等式制約の係数を入力しよう</h3>
+			{% for j in range(eq) %}
+				{% for i in range(var) %}
+					{% if i != var-1 %}
+						<input type='text' name="e{{j}}{{i}}" size="5">
+						<a>x{{i}} +</a>
+					{% else %}
+						<input type='text' name="e{{j}}{{i}}" size="5">
+						<a>x{{i}} =</a>
+						<input type='text' name="f{{j}}" size="5">
+					{% endif %}
+				{% endfor %}
+				<br>
+			{% endfor %}
+		{% endif %}
+			<br>
+			<input type='submit' value="実行">
+		</form>
+        {% if again %}
+            <p>※数字を入力してください</p>
+        {% endif %}
+    </body>
+
+</html>

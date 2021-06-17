@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>線形計画問題の計算</title>
+	</head>
+
+    <body>
+        <h1>線形計画問題を計算する</h1>
+        <form method='POST' action="/input">
+            <p>最小化？最大化？</p>
+            <input type="radio" name="sense" value="min" checked>最小化
+            <input type="radio" name="sense" value="max">最大化
+            <p>変数の数は？</p>
+            <input type='text' name="var" size="15">
+            <p>変数のタイプは？</p>
+            <input type="radio" name="cat" value="con" checked>連続変数
+            <input type="radio" name="cat" value="bin">0-1変数
+            <input type="radio" name="cat" value="int">整数変数
+            <p>不等式制約の数は？</p>
+            <input type='text' name="ineq" size="15">
+            <p>等式制約の数は？</p>
+            <input type='text' name="eq" size="15">
+            <br>
+            <br>
+            <input type='submit' value="次へ">
+        </form>
+        {% if again %}
+            <p>※数字を入力してください</p>
+        {% endif %}
+    </body>
+
+</html>
