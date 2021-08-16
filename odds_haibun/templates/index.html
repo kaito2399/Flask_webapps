@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>馬券・舟券の資金配分</title>
+        <link rel="stylesheet" href="hello.css">
+	</head>
+
+    <body>
+        <div style="text-align: center">
+            <br>
+            <br>
+            <h1>馬券・舟券の資金配分</h1>
+        <form method='POST' action="/input">
+            <p>買いたい馬券・舟券の数は？</p>
+            <input type='text' name="n" size="15">
+            <input type='submit' value="入力画面へ">
+        </form>
+    {% if again %}
+        <p>※数字を入力してください</p>
+    {% endif %}
+        </div>
+    </body>
+
+</html>

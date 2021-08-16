@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<title>馬券・舟券の資金配分</title>
+        <link rel="stylesheet" href="hello.css">
+	</head>
+    <body>
+        <div style="text-align: center">
+        <h1>馬券・舟券の資金配分</h1>
+        <h2>結果</h2>
+        <p>状態：{{status}}</p>
+        {% for i in min_haibun %}
+        <div class="karte-temp-description">{{i}}倍：<span>{{min_haibun[i]}}00円</span>　→{{i*min_haibun[i]*100}}円</div>
+        {% endfor %}
+        <br>
+
+        <a href='/index.html'>初めに戻る</a>
+        </div>
+    </body>
+</html>

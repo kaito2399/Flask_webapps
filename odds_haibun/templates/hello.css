@@ -1,0 +1,17 @@
+body {
+    background-color:#eeffee;
+}
+
+h1 {
+    color:white;
+    background-color:red;
+}
+
+p {
+    color:blue;
+    background-color:white;
+}
+
+.karte-temp-description span{
+    font-weight: bold;
+  }

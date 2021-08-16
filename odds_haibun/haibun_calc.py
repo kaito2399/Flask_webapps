@@ -1,0 +1,25 @@
+import itertools
+def haibun(O,A):
+    n=len(O)
+    min_sa=float('inf')
+    for c in itertools.combinations(range(A-1),n-1):
+        haibun={}
+        for i in range(n):
+            if i==0:
+                haibun[float(O[i])]=(c[0]+1)
+            elif i==n-1:
+                haibun[float(O[i])]=(A-1-c[-1])
+            else:
+                haibun[float(O[i])]=(c[i]-c[i-1])
+        sa=sum([(i*haibun[i]-j*haibun[j])**2 for (i,j) in itertools.combinations(haibun,2)])
+        if sa<min_sa:
+            min_sa=sa
+            min_haibun=haibun
+            hm=[i*haibun[i] for i in haibun]
+    if min(hm)<A:
+        return 'トリガミ',min_haibun, hm
+    else:
+        return 'Optimal!', min_haibun, hm
+
+
+    
