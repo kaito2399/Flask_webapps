@@ -1,6 +1,6 @@
 from flask import *
 import os
-from haibun_calc import haibun
+from haibun_calc import haibun3
 # Flaskオブジェクトの生成
 app = Flask(__name__)
 
@@ -30,7 +30,8 @@ def calc():
     O = [(request.form["odds{}".format(i)]) for i in range(n_size)]
     O =sorted(O)
     A = (request.form["shikin"])
-    if all([i.isdigit() for i in O]) and A.isdigit():
+    if all([i.isascii() for i in O]) and A.isdigit():
+        O=list(map(float,O))
         status,min_haibun,hm = haibun3(O,int(A))
         return render_template('result.html', status=status, min_haibun=min_haibun,hm=hm)
     else:

@@ -1,4 +1,5 @@
 import itertools
+import numpy as np
 def haibun(O,A):
     n=len(O)
     min_sa=float('inf')
@@ -46,6 +47,7 @@ def haibun3(O,A):
             min_v=min(vs, key=vs.get)
             haibun[min_v]+=1
         hm=[haibun[i]*O[i] for i in range(n)]
-        return 'Optimal!',haibun, hm 
+        min_haibun={O[i]:haibun[i] for i in range(n)}
+        return 'Optimal!',min_haibun, hm 
 
     
