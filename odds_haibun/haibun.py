@@ -31,7 +31,7 @@ def calc():
     O =sorted(O)
     A = (request.form["shikin"])
     if all([i.isdigit() for i in O]) and A.isdigit():
-        status,min_haibun,hm = haibun(O,int(A))
+        status,min_haibun,hm = haibun3(O,int(A))
         return render_template('result.html', status=status, min_haibun=min_haibun,hm=hm)
     else:
         again=True
